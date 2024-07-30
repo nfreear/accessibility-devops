@@ -7,22 +7,23 @@
  * @see https://stackoverflow.com/questions/47881223/running-http-server-in-background-from-an-npm-script
  */
 
-// #!/usr/bin/node
-
 import * as FS from 'fs';
 import * as CP from 'child_process';
-// const FS = require('fs');
-// const CP = require('child_process');
 
 const out = FS.openSync('./out.log', 'a');
 const err = FS.openSync('./out.log', 'a');
 
 const child = CP.spawn('servor', ['./pages', 8080], { detached: true, stdio: [ 'ignore', out, err ] });
-/*
-var MANFILE='ALengthyNodeManual.pdf';
-var child = cp.spawn('gnome-open', [MANFILE], { detached: true, stdio: [ 'ignore', out, err ] });
-*/
+
 child.unref();
+
+sleep(1000);
+
+function sleep (timeoutMS = 1000) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => resolve('foo'), timeoutMS);
+  });
+}
 
 /* const servor = require('servor');
 
