@@ -1,18 +1,15 @@
 {
   "private": true,
   "name": "accessiility-devops",
-  "type": "module",
+  "X-type": "module",
   "scripts": {
     "start": "servor ./pages",
-    "start:detached": "node bin/servor-detach.js",
-    "XX-start-detached": "servor ./pages 8080 -- & disown",
+    "start:detached": "node bin/servor-detach.mjs",
     "kill": "kill $(lsof -t -i:8080)",
-    "test": "npm run pa11y-ci:pass && npm run pa11y-ci:fail",
+    "test": "pa11y-ci --config .pa11yci.js",
+    "test:X": "npm run pa11y-ci:pass && npm run pa11y-ci:fail",
     "pa11y-ci:pass": "pa11y-ci http://127.0.0.1:8080/pass.html",
-    "pa11y-ci:fail": "pa11y-ci http://127.0.0.1:8080/fail.html",
-    "X-start-detached": "bundle exec jekyll serve --detach",
-    "X-pa11y-ci:home": "pa11y-ci http://127.0.0.1:4000",
-    "X-pa11y-ci:sitemap": "pa11y-ci --sitemap http://127.0.0.1:4000/sitemap.xml --sitemap-find https://accessibility.civicactions.com --sitemap-replace http://127.0.0.1:4000 --sitemap-exclude \"/*.pdf\""
+    "pa11y-ci:fail": "pa11y-ci http://127.0.0.1:8080/fail.html"
   },
   "devDependencies": {
     "pa11y-ci": "^3.1.0",
