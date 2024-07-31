@@ -9,8 +9,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
-
+  test:
     runs-on: ubuntu-latest
 
     strategy:
@@ -29,9 +28,9 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm run start:detached
+    - run: cat servor.log
     #- run: sleep 1
     - run: npm test
     #-run: npm run kill
-    - run: cat out.log
 
 # End.

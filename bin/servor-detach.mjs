@@ -1,4 +1,5 @@
 /**
+ * Start "servor" process in detached mode.
  *
  * @copyright © Nick Freear, 30-July-2024.
  * @see https://opensource.com/article/23/2/automated-accessibility-testing
@@ -10,8 +11,8 @@
 import * as FS from 'fs';
 import * as CP from 'child_process';
 
-const out = FS.openSync('./out.log', 'a');
-const err = FS.openSync('./out.log', 'a');
+const out = FS.openSync('./servor.log', 'a');
+const err = FS.openSync('./servor.log', 'a');
 
 const child = CP.spawn('servor', ['./pages', 8080], { detached: true, stdio: [ 'ignore', out, err ] });
 
