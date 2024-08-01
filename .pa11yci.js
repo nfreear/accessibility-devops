@@ -15,6 +15,12 @@ module.exports = {
     chromeLaunchConfig: {
       executablePath,
       args: ['--disable-dev-shm-usage', '--no-sandbox', '--disable-gpu']
+    },
+    viewport: {
+      width: 320,
+      height: 480,
+      deviceScaleFactor: 2,
+      isMobile: true
     }
   },
 

@@ -23,5 +23,5 @@
 body {
   font-size: 12px;
   margin: auto;
-  max-width: 35rem;
+  min-width: 340px;
 }

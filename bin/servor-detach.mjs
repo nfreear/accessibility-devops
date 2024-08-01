@@ -11,10 +11,12 @@
 import * as FS from 'fs';
 import * as CP from 'child_process';
 
-const out = FS.openSync('./servor.log', 'a');
-const err = FS.openSync('./servor.log', 'a');
+const PORT = 8080;
 
-const child = CP.spawn('servor', ['./pages', 8080], { detached: true, stdio: [ 'ignore', out, err ] });
+const out = FS.openSync('./servor.log', 'w');
+const err = FS.openSync('./servor.log', 'w');
+
+const child = CP.spawn('servor', ['./pages', PORT], { detached: true, stdio: [ 'ignore', out, err ] });
 
 child.unref();
 
