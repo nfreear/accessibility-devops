@@ -31,7 +31,7 @@ jobs:
     - run: cat servor.log
     #- run: sleep 1
     #- run: npm test
-    run: npm run test:cypress
+    - run: npm run test:cypress
     #-run: npm run kill
 
 # End.
