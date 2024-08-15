@@ -7,11 +7,15 @@
     "start:detached": "node bin/servor-detach.mjs",
     "kill": "kill $(lsof -t -i:8080)",
     "test": "pa11y-ci --config .pa11yci.js",
+    "test:cypress": "cypress run --browser chrome --headless",
     "test:X": "npm run pa11y-ci:pass && npm run pa11y-ci:fail",
     "pa11y-ci:pass": "pa11y-ci http://127.0.0.1:8080/pass.html",
     "pa11y-ci:fail": "pa11y-ci http://127.0.0.1:8080/fail.html"
   },
   "devDependencies": {
+    "cypress": "^13.13.3",
+    "cypress-axe": "^1.5.0",
+    "cypress-real-events": "^1.13.0",
     "pa11y-ci": "^3.1.0",
     "servor": "^4.0.2"
   }

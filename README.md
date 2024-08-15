@@ -28,14 +28,15 @@ You'll also need to:
 [cypress]: https://www.cypress.io/
 [blog post]: https://opensource.com/article/23/2/automated-accessibility-testing
   "Blog: example of performing accessibility tests in GitLab with Pa11y and Cypress, By Daniel Mundra, February 22, 2023"
+[civic-repo]: https://gitlab.com/civicactions/accessibility
 [wp-ci]: https://en.wikipedia.org/wiki/Continuous_integration
 [wp-ops]: https://en.wikipedia.org/wiki/DevOps
 [intro]: https://github.com/GoogleChrome/lighthouse-ci/blob/main/docs/introduction-to-ci.md
-  "Introduction to CI (Google)"
+  "Introduction to Continuous Integration (Google)"
 [demo1]: https://github.com/nfreear/accessibility-ci-demo
-  "Demos use of 'jest-axe' and 'lighthouse-ci-action'"
+  "#1 Demos use of 'jest-axe' and 'lighthouse-ci-action'"
 [demo2]: https://github.com/nfreear/accessibility-devops
-  "Demos use of 'pa11y-ci'"
+  "#2 Demos use of 'pa11y-ci'"
 
 [ci]: https://github.com/nfreear/accessibility-devops/actions/workflows/node.js.yml
 [ci-img]: https://github.com/nfreear/accessibility-devops/actions/workflows/node.js.yml/badge.svg
