@@ -6,7 +6,7 @@
     "start": "servor ./pages",
     "start:detached": "node bin/servor-detach.mjs",
     "kill": "kill $(lsof -t -i:8080)",
-    "test": "pa11y-ci --config .pa11yci.js",
+    "test:pa11y-ci": "pa11y-ci --config .pa11yci.js",
     "test:cypress": "cypress run --browser chrome --headless",
     "test:X": "npm run pa11y-ci:pass && npm run pa11y-ci:fail",
     "pa11y-ci:pass": "pa11y-ci http://127.0.0.1:8080/pass.html",

@@ -72,11 +72,11 @@ Cypress.Commands.add('checkA11yWithSingleViewPort', () => {
   cy.checkA11y(null, null, terminalLog)
 })
 
-const X2JS = require("x2js");
+/* const X2JS = require('x2js');
 
 // Credit LINCS project and https://github.com/thejuliekramer.
-Cypress.Commands.add("getSitemapLocations", () => {
-  return fetch("/sitemap.xml")
+Cypress.Commands.add('getSitemapLocations', () => {
+  return fetch('/sitemap.xml')
     .then((res) => res.text())
     .then((xml) => {
       const x2js = new X2JS();
@@ -85,4 +85,4 @@ Cypress.Commands.add("getSitemapLocations", () => {
       const urls = json.urlset.url.map((url) => [url.loc, url.lastmod]);
       return urls;
     });
-});
+}); */
