@@ -24,14 +24,16 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+const { cy, Cypress } = globalThis;
+
 // Logs a11y violations, taken from https://github.com/component-driven/cypress-axe#using-the-violationcallback-argument.
-function terminalLog(violations) {
+function terminalLog (violations) {
   cy.task(
     'log',
     `${violations.length} accessibility violation${
       violations.length === 1 ? '' : 's'
     } ${violations.length === 1 ? 'was' : 'were'} detected`
-  )
+  );
   // pluck specific keys to keep the table readable
   const violationData = violations.map(
     ({ id, impact, description, nodes }) => ({
@@ -40,37 +42,37 @@ function terminalLog(violations) {
       description,
       nodes: nodes.length
     })
-  )
+  );
 
-  cy.task('table', violationData)
+  cy.task('table', violationData);
 }
 
 // Check for accessibility issues with different window sizes.
 // Taken from https://timdeschryver.dev/blog/setting-up-cypress-with-axe-for-accessibility.
 Cypress.Commands.add('checkA11yWithMultipleViewPorts', () => {
   cy.injectAxe();
-  ;[
+  [
     [1920, 1080],
     /* 'macbook-15',
     'macbook-13',
     'macbook-11',
     'iphone-6', */
     'iphone-6+',
-    'ipad-mini',
+    'ipad-mini'
   ].forEach(size => {
     if (Array.isArray(size)) {
-      cy.viewport(size[0], size[1])
+      cy.viewport(size[0], size[1]);
     } else {
-      cy.viewport(size)
+      cy.viewport(size);
     }
-    cy.checkA11y(null, null, terminalLog)
+    cy.checkA11y(null, null, terminalLog);
   });
-})
+});
 
 Cypress.Commands.add('checkA11yWithSingleViewPort', () => {
   cy.injectAxe();
-  cy.checkA11y(null, null, terminalLog)
-})
+  cy.checkA11y(null, null, terminalLog);
+});
 
 /* const X2JS = require('x2js');
 

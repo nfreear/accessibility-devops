@@ -1,4 +1,4 @@
-const { defineConfig } = require('cypress')
+const { defineConfig } = require('cypress');
 
 const PORT = 8080;
 
@@ -9,7 +9,7 @@ module.exports = defineConfig({
   reporter: 'junit',
   reporterOptions: {
     mochaFile: 'cypress/results/junit.[hash].xml',
-    toConsole: false,
+    toConsole: false
   },
   screenshotsFolder: 'cypress/results/screenshots',
   // Disable Google Analytics, tag manager, translation services.
@@ -24,6 +24,15 @@ module.exports = defineConfig({
     /* setupNodeEvents(on, config) {
       return require('./cypress/plugins/index.js')(on, config)
     }, */
-    baseUrl: `http://localhost:${PORT}`,
-  },
+    setupNodeEvents (on, config) {
+      on('task', {
+        log (message) {
+          console.log(message);
+
+          return null;
+        }
+      });
+    },
+    baseUrl: `http://localhost:${PORT}`
+  }
 });

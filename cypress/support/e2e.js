@@ -19,6 +19,7 @@ import 'cypress-axe'
 import 'cypress-real-events/support' */
 
 // Alternatively you can use CommonJS syntax:
-require('./commands')
-require('cypress-axe')
-require('cypress-real-events/support')
+require('./commands');
+require('./custom-commands');
+require('cypress-axe');
+require('cypress-real-events/support');

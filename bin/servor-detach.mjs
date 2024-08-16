@@ -16,7 +16,7 @@ const PORT = 8080;
 const out = FS.openSync('./servor.log', 'w');
 const err = FS.openSync('./servor.log', 'w');
 
-const child = CP.spawn('servor', ['./pages', PORT], { detached: true, stdio: [ 'ignore', out, err ] });
+const child = CP.spawn('servor', ['./pages', PORT], { detached: true, stdio: ['ignore', out, err] });
 
 child.unref();
 
