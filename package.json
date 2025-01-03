@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "accessiility-devops",
-  "type": "module",
+  "x-type": "module",
   "scripts": {
     "lint": "semistandard --fix",
     "start": "servor ./pages",

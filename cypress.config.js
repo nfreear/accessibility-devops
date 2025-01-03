@@ -4,12 +4,12 @@
  * @see https://docs.cypress.io/guides/references/configuration
  */
 
-import { defineConfig } from 'cypress';
+// import { defineConfig } from 'cypress';
+const { defineConfig } = require('cypress');
 
 const PORT = 8080;
 
-const config = defineConfig({
-// WAS: module.exports = defineConfig({
+module.exports = defineConfig({
   // Re-enable if you want to see videos of the tests.
   video: false,
   videosFolder: 'cypress/results',
@@ -50,4 +50,4 @@ const config = defineConfig({
   }
 });
 
-export default config;
+// export default cypressConfig;

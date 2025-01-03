@@ -13,15 +13,14 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 
-// Import commands.js using ES2015 syntax:
+/* // Import commands.js using ES2015 syntax:
 import './commands';
 import './custom-commands';
 import 'cypress-axe';
-import 'cypress-real-events/support';
+import 'cypress-real-events/support'; */
 
-/* // Alternatively you can use CommonJS syntax:
+// Alternatively you can use CommonJS syntax:
 require('./commands');
 require('./custom-commands');
 require('cypress-axe');
 require('cypress-real-events/support');
-*/

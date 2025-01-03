@@ -36,15 +36,19 @@ function terminalLog (violations) {
   );
   // pluck specific keys to keep the table readable
   const violationData = violations.map(
-    ({ id, impact, description, nodes }) => ({
+    ({ id, impact, description /*, nodes */ }) => ({
       id,
       impact,
-      description,
-      nodes: nodes.length
+      description: truncate(description, 86)
+      // nodes: nodes.length
     })
   );
 
   cy.task('table', violationData);
+}
+
+function truncate (str, length) {
+  return str.length > length ? str.substring(0, length) + '…' : str;
 }
 
 // Check for accessibility issues with different window sizes.
