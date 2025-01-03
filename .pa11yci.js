@@ -2,6 +2,7 @@
  * Pa11y-ci configuration.
  *
  * @copyright © Nick Freear, 30-July-2024.
+ * @see https://github.com/pa11y/pa11y-ci#configuration
  * @see https://opensource.com/article/23/2/automated-accessibility-testing
  * @see https://gitlab.com/civicactions/accessibility
  */

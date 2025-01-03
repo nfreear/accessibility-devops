@@ -1,3 +1,9 @@
+/**
+ * Cypress configuration
+ *
+ * @see https://docs.cypress.io/guides/references/configuration
+ */
+
 const { defineConfig } = require('cypress');
 
 const PORT = 8080;

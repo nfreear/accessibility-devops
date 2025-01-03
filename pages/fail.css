@@ -13,7 +13,7 @@
   color: #bbb;
 }
 
-:link {
+.empty-link {
   border: 3px solid blue;
   display: inline-block;
   min-height: 1rem;
@@ -21,7 +21,9 @@
 }
 
 body {
-  font-size: 12px;
+  font-size: 14px;
   margin: auto;
+  max-width: 37rem;
   min-width: 340px;
+  padding: 0 1rem 1rem;
 }
