@@ -15,6 +15,8 @@ It demonstrates the use of two separate tools:
 
 The repo contains example _fails_ and _passes_ [pages](./pages), and corresponding [end-to-end tests](./cypress/e2e).
 
+![Screenshot showing Cypress output](./.github/workflows/screenshots/cypress-test-fail.png)
+
 ## ⚠️✋ This project does not guarantee that what you build is accessible.
 
 The GDS Accessibility team found that only [~30% of issues are found by automated testing][gds].
@@ -49,7 +51,7 @@ npm run test:pa11y-ci
 [demo1]: https://github.com/nfreear/accessibility-ci-demo
   "#1 Demos use of 'jest-axe' and 'lighthouse-ci-action'"
 [demo2]: https://github.com/nfreear/accessibility-devops
-  "#2 Demos use of 'pa11y-ci'"
+  "#2 Demos use of 'pa11y-ci' and Cypress"
 
 [ci]: https://github.com/nfreear/accessibility-devops/actions/workflows/node.js.yml
 [ci-img]: https://github.com/nfreear/accessibility-devops/actions/workflows/node.js.yml/badge.svg
