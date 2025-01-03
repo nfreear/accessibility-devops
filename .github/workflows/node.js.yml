@@ -10,7 +10,7 @@ on:
 
 # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 env:
-  NODE_VERSION: 20.x
+  NODE_VERSION: 22.x
 
 jobs:
   test_pa11yci:
