@@ -1,12 +1,12 @@
 
-/* FAIL: turn off default focus indicator!
+/* FAIL: turn off default focus indicator! (2.4.7 Focus Visible)
 */
 :focus-visible,
 :focus {
   outline: none;
 }
 
-/* FAIL: low contrast!
+/* FAIL: 1.4.3 Contrast (Minimum).
 */
 .low-contrast {
   background-color: #eee;
@@ -26,4 +26,18 @@ body {
   max-width: 37rem;
   min-width: 340px;
   padding: 0 1rem 1rem;
+}
+
+iframe {
+  display: block;
+}
+
+x-test[ fail ] {
+  border: 1px solid darkred;
+  display: block;
+  padding: .5rem;
+}
+
+x-test[ fail ] x-test-desc {
+  color: darkred;
 }

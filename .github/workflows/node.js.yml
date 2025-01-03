@@ -49,6 +49,7 @@ jobs:
     - run: npm run build --if-present
     - run: npm run start:detached
     - run: cat servor.log
+    - run: npm run lint
     - run: npm run test:cypress
 
 # End.

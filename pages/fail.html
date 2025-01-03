@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html fail-no-lang>
 
   <link rel="stylesheet" href="fail.css">
 
@@ -13,25 +13,41 @@
   </nav>
 
   <p>
-    <img src="example"><!-- Fail: Missing "alt" attribute. -->
+    <x-test fail>
+      <img src="example"> <x-test-desc>FAIL: Missing "alt" attribute. (1.1.1)</x-test-desc>
+    </x-test>
   </p>
 
   <p>
-    <a href="#" class="empty-link"></a><!-- Fail: Missing accessible name for link. -->
+    <x-test fail>
+      <img src="#" class="decorative" alt="decorative"> <x-test-desc>FAIL: Decorative images should have empty "alt" attributes (1.1.1)</x-test-desc>
+    </x-test>
   </p>
 
   <p>
-    Test <input><!-- Fail: No accessible name / No prog. associated visual label. -->
+    <x-test fail>
+      <a href="#" class="empty-link"></a> <x-test-desc>FAIL: Missing accessible name for link (4.1.2)</x-test-desc>
+    </x-test>
   </p>
 
   <p>
-    <iframe src="https://example.org">
-      Fail: Iframe without a meaningful name in the "title" attribute.
-    </iframe>
+    <x-test fail>
+      Test <input> <x-test-desc>FAIL: No accessible name / No prog. associated visual label.</x-test-desc>
+    </x-test>
   </p>
 
-  <p class="low-contrast">
-    Fail: Hello, I fail Colour Contrast (Minimum)!
+  <p>
+    <x-test fail>
+      <iframe src="https://example.org"></iframe>
+      <x-test-desc>FAIL: Iframe without a meaningful name in the "title" attribute (4.1.2)</x-test-desc>
+    </x-test>
+  </p>
+
+  <p>
+    <x-test fail>
+      <span class="low-contrast">Hello, I fail the text contrast test!</span>
+      <x-test-desc>FAIL: text contrast (minimum) (1.4.3)</x-test-desc>
+    </x-test>
   </p>
 
 </html>

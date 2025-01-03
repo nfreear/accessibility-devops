@@ -8,9 +8,12 @@ This repository demonstrates integrating automated accessibility testing tools i
 * [@nfreear/accessibility-ci-demo][demo1]
 * [@nfreear/accessibility-devops][demo2] (_this repo._)
 
-It demonstrates the use of [pa11y-ci][]. Also see [Cypress][], and this [blog post][].
+It demonstrates the use of two separate tools:
 
-The repo contains example _fails_ and _passes_ [pages](./pages)<!--, and corresponding unit tests-->.
+* [pa11y-ci][],
+* [Cypress][] (see this [blog post][]).
+
+The repo contains example _fails_ and _passes_ [pages](./pages), and corresponding [end-to-end tests](./cypress/e2e).
 
 ## ⚠️✋ This project does not guarantee that what you build is accessible.
 
@@ -19,6 +22,16 @@ The GDS Accessibility team found that only [~30% of issues are found by automate
 You'll also need to:
 * test your interface with the [assistive technologies that real users use][at] (see also [WebAIM's survey results][survey]).
 * include disabled people in user research.
+
+## Usage
+
+```
+npm install
+npm run lint
+npm run start:detached
+npm run test:cypress
+npm run test:pa11y-ci
+```
 
 [gds]: https://accessibility.blog.gov.uk/2017/02/24/what-we-found-when-we-tested-tools-on-the-worlds-least-accessible-webpage
 [at]: https://www.gov.uk/service-manual/technology/testing-with-assistive-technologies#when-to-test

@@ -2,3 +2,5 @@ node_modules
 *.log
 *BAK*
 cypress/results
+
+_a11y-ci-demo
