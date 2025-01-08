@@ -36,11 +36,11 @@ function terminalLog (violations) {
   );
   // pluck specific keys to keep the table readable
   const violationData = violations.map(
-    ({ id, impact, description /*, nodes */ }) => ({
+    ({ id, impact, description, nodes }) => ({
       id,
       impact,
-      description: truncate(description, 86)
-      // nodes: nodes.length
+      description: truncate(description, 86),
+      nodes: nodes.length
     })
   );
 

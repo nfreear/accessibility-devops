@@ -1,0 +1,13 @@
+
+button,
+input {
+  font-size: inherit;
+}
+
+body {
+  font-family: sans-serif;
+  line-height: 1.4;
+  margin: auto;
+  max-width: 37rem;
+  padding: 0 1rem 1rem;
+}

@@ -1,8 +1,8 @@
 
 const { describe, it, expect, cy } = globalThis;
 
-describe('Pass', () => {
-  it('error should be associated with field', () => {
+describe('Pass - Interactive', () => {
+  it('error should be associated with form field', () => {
     cy.visit('/pass.html');
 
     cy.get('form').within(() => {

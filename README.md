@@ -11,7 +11,7 @@ This repository demonstrates integrating automated accessibility testing tools i
 It demonstrates the use of two separate tools:
 
 * [pa11y-ci][],
-* [Cypress][] (see this [blog post][]).
+* [cypress-axe][] with [Cypress][] (see this [blog post][]).
 
 The repo contains example _fails_ and _passes_ [pages](./pages), and corresponding [end-to-end tests](./cypress/e2e).
 
@@ -41,6 +41,8 @@ npm run test:pa11y-ci
   "Screen Reader Survey #10, 2024."
 [pa11y-ci]: https://github.com/pa11y/pa11y-ci
 [cypress]: https://www.cypress.io/
+[cypress-accessibility]: https://docs.cypress.io/accessibility/get-started/introduction
+[cypress-axe]: https://www.npmjs.com/package/cypress-axe
 [blog post]: https://opensource.com/article/23/2/automated-accessibility-testing
   "Blog: example of performing accessibility tests in GitLab with Pa11y and Cypress, By Daniel Mundra, February 22, 2023"
 [civic-repo]: https://gitlab.com/civicactions/accessibility
