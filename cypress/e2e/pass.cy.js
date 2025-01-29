@@ -2,7 +2,7 @@
  * Test with cypress-axe.
  */
 
-const { describe, it, expect, cy } = globalThis;
+const { describe, it, cy } = globalThis;
 
 describe('Pass', () => {
   it('should be accessible', () => {
