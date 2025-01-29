@@ -1,10 +1,9 @@
 # https://docs.gitlab.com/ee/ci/yaml/
 # https://gitlab.com/civicactions/accessibility/-/blob/main/.gitlab-ci.yml
-# https://docs.gitlab.com/ee/ci/testing/accessibility_testing.html
-# https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Verify/Accessibility.gitlab-ci.yml
 
 stages:
 - test
+- accessibility
 # - publish
 
 cache:
@@ -12,6 +11,15 @@ cache:
   paths:
     - node_modules/
     - .npm/
+
+# https://docs.gitlab.com/ee/ci/testing/accessibility_testing.html
+# https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Verify/Accessibility.gitlab-ci.yml
+variables:
+  a11y_urls: "http://127.0.0.1:8080/pass.html http://127.0.0.1:8080/fail.html"
+  # a11y_urls: "https://about.gitlab.com https://gitlab.com/users/sign_in"
+
+include:
+  - template: "Verify/Accessibility.gitlab-ci.yml"
 
 default:
   image: node:latest
@@ -21,22 +29,36 @@ default:
   # expires_in: never
 
 Test with Pa11y-CI:
-  stage: test
-  script:
-    - npm run test:pa11y-ci
-  artifacts:
-    when: always
-    reports:
-      junit:
-        - pa11y-report-junit.xml
+  stage: accessibility
+  #script:
+  #  - npm run test:pa11y-ci
+  #artifacts:
+  #  when: always
+  #  reports:
+  #    junit:
+  #      - pa11y-report-junit.xml
 
 Test with Cypress:
   stage: test
-  script:
+  before_script:
+    - npm ci --cache .npm --prefer-offline
+    - npm run start:detached
+
+    # https://stackoverflow.com/questions/61912882/how-to-install-a-specific-version-of-google-chrome-on-gitlab-ci
+    # Install gnupg2
+    - apt-get install -y gnupg2
+
+    # Install latest Google Chrome.
+    - curl -sS -o - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add
+    - echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list
+    - apt-get -y update
+    - apt-get -y install google-chrome-stable
+
     # Install Chrome browser manually, taken from https://github.com/cypress-io/cypress-docker-images/blob/master/browsers/node18.12.0-chrome107/Dockerfile#L43
-    - wget --no-verbose -O /usr/src/google-chrome-stable_current_amd64.deb "http://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_107.0.5304.121-1_amd64.deb"
-    - dpkg -i /usr/src/google-chrome-stable_current_amd64.deb
-    - rm -f /usr/src/google-chrome-stable_current_amd64.deb
+    #- wget --no-verbose -O /usr/src/google-chrome-stable_current_amd64.deb "http://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_107.0.5304.121-1_amd64.deb"
+    #- dpkg -i /usr/src/google-chrome-stable_current_amd64.deb
+    #- rm -f /usr/src/google-chrome-stable_current_amd64.deb
+  script:
     - npm run test:cypress
   artifacts:
     when: always
