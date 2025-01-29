@@ -2,8 +2,8 @@
 # https://gitlab.com/civicactions/accessibility/-/blob/main/.gitlab-ci.yml
 
 stages:
-- test
 - accessibility
+- a11y-cypress
 # - publish
 
 cache:
@@ -28,8 +28,8 @@ default:
     - npm run start:detached
   # expires_in: never
 
-Test with Pa11y-CI:
-  stage: accessibility
+#Test with Pa11y-CI:
+#  stage: accessibility
   #script:
   #  - npm run test:pa11y-ci
   #artifacts:
@@ -39,7 +39,8 @@ Test with Pa11y-CI:
   #      - pa11y-report-junit.xml
 
 Test with Cypress:
-  stage: test
+  stage: a11y-cypress
+  needs: []
   before_script:
     - npm ci --cache .npm --prefer-offline
     - npm run start:detached
