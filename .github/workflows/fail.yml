@@ -1,18 +1,13 @@
 # https://github.com/actions/starter-workflows/blob/main/ci/node.js.yml
 
-name: Should pass
-#name: Node.js CI
+name: Should fail
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+on: [push, pull_request]
 
 # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 env:
   NODE_VERSION: 22.x
-  _SPEC: PASS
+  _SPEC: FAIL
 
 jobs:
   test_pa11yci:
@@ -51,7 +46,7 @@ jobs:
     - run: npm run build --if-present
     - run: npm run start:detached
     - run: cat servor.log
-    - run: npm run lint
+    #- run: npm run lint
     - run: npm run test:cypress
 
 # End.

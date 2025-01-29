@@ -2,6 +2,7 @@
 # Accessibility DevOps demo
 
 [![Node.js CI][ci-img]][ci] (_expected to fail!_)
+[![Should fail][ci-fail-img]][ci-fail]
 
 This repository demonstrates integrating automated accessibility testing tools into a [continuous integration/deployment (CI/CD)][intro] workflow.
 
@@ -33,6 +34,7 @@ npm run lint
 npm run start:detached
 npm run test:cypress
 npm run test:pa11y-ci
+_SPEC=pass npm run test:cypress
 ```
 
 [gds]: https://accessibility.blog.gov.uk/2017/02/24/what-we-found-when-we-tested-tools-on-the-worlds-least-accessible-webpage
@@ -57,3 +59,6 @@ npm run test:pa11y-ci
 
 [ci]: https://github.com/nfreear/accessibility-devops/actions/workflows/node.js.yml
 [ci-img]: https://github.com/nfreear/accessibility-devops/actions/workflows/node.js.yml/badge.svg
+
+[ci-fail]: https://github.com/nfreear/accessibility-devops/actions/workflows/fail.yml
+[ci-fail-img]: https://github.com/nfreear/accessibility-devops/actions/workflows/fail.yml/badge.svg

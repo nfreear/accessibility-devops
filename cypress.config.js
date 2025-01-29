@@ -7,6 +7,7 @@
 // import { defineConfig } from 'cypress';
 const { defineConfig } = require('cypress');
 
+const ENV_SPEC = process.env._SPEC;
 const PORT = 8080;
 
 module.exports = defineConfig({
@@ -25,6 +26,7 @@ module.exports = defineConfig({
     '*googleapis.com'
   ],
   e2e: {
+    specPattern: specPatternFromEnv(ENV_SPEC),
     supportFile: 'cypress/support/e2e.js',
     // We've imported your old cypress plugins here.
     // You may want to clean this up later by importing these.
@@ -49,5 +51,13 @@ module.exports = defineConfig({
     baseUrl: `http://localhost:${PORT}`
   }
 });
+
+function specPatternFromEnv (_spec) {
+  console.log('>> env._spec:', _spec);
+
+  const SPEC = _spec && /^(PASS|FAIL)/i.test(_spec) ? _spec.toLowerCase() : '';
+
+  return `cypress/e2e/**/${SPEC}*.cy.{js,jsx,ts,tsx}`;
+}
 
 // export default cypressConfig;

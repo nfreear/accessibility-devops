@@ -7,6 +7,7 @@
  * @see https://gitlab.com/civicactions/accessibility
  */
 
+const ENV_SPEC = process.env._SPEC;
 const PORT = 8080;
 const executablePath = process.env.CI ? '/usr/bin/google-chrome' : null;
 
@@ -25,8 +26,28 @@ module.exports = {
     }
   },
 
-  urls: [
+  urls: urlsFromEnv(ENV_SPEC)
+
+  /* urls: [
     `http://127.0.0.1:${PORT}/pass.html`,
     `http://127.0.0.1:${PORT}/fail.html`
-  ]
+  ] */
 };
+
+function urlsFromEnv (_spec) {
+  console.log('>> env._spec:', _spec);
+
+  _spec = _spec ? _spec.toLowerCase() : null;
+
+  switch (_spec) {
+    case 'pass':
+      return [ `http://127.0.0.1:${PORT}/pass.html` ];
+    case 'fail':
+      return [ `http://127.0.0.1:${PORT}/fail.html` ];
+    default:
+      return [
+        `http://127.0.0.1:${PORT}/pass.html`,
+        `http://127.0.0.1:${PORT}/fail.html`
+      ];
+  }
+}
